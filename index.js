@@ -25,8 +25,12 @@ async function main() {
     // console.log(retorno);
 
     //Listar todos os documentos
-    const projection = {projection: {titulo:1}}
-    const saida = await collection.find({titulo:"Exemplo"}, projection).toArray();
+    // const projection = {projection: {titulo:1}}
+    // const saida = await collection.find({titulo:"Exemplo"}, projection).toArray();
+    // console.log(saida);
+
+    //Atualizando um documento
+    const saida = await collection.updateOne({titulo:"Exemplo2"},{$set:{conteudo:"100% atualizado"}});
     console.log(saida);
 
 
