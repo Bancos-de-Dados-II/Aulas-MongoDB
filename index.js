@@ -34,7 +34,12 @@ async function main() {
     // console.log(saida);
 
     //Removendo um documento
-    const saida = await collection.deleteOne({titulo:"Exemplo2"});
+    // const saida = await collection.deleteOne({titulo:"Exemplo2"});
+    // console.log(saida);
+
+    //Fazendo a busca por conteúdo
+    const saida = await collection.find(
+        {$text:{$search:"professor"}}).sort({ score:{$meta:"textScore"}}).toArray();
     console.log(saida);
 
   return 'done.';
