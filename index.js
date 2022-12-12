@@ -30,9 +30,12 @@ async function main() {
     // console.log(saida);
 
     //Atualizando um documento
-    const saida = await collection.updateOne({titulo:"Exemplo2"},{$set:{conteudo:"100% atualizado"}});
-    console.log(saida);
+    // const saida = await collection.updateOne({titulo:"Exemplo2"},{$set:{conteudo:"100% atualizado"}});
+    // console.log(saida);
 
+    //Removendo um documento
+    const saida = await collection.deleteOne({titulo:"Exemplo2"});
+    console.log(saida);
 
   return 'done.';
 }
