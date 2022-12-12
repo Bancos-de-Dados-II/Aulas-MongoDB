@@ -17,12 +17,18 @@ async function main() {
   const collection = db.collection('documentos');
 
     //Inserindo um documento
-    const documento = {
-        titulo: "Exemplo",
-        conteudo: "Exemplo de documento"
-    }
-    const retorno = await collection.insertOne(documento);
-    console.log(retorno);
+    // const documento = {
+    //     titulo: "Exemplo2",
+    //     conteudo: "Exemplo de documento2"
+    // }
+    // const retorno = await collection.insertOne(documento);
+    // console.log(retorno);
+
+    //Listar todos os documentos
+    const projection = {projection: {titulo:1}}
+    const saida = await collection.find({titulo:"Exemplo"}, projection).toArray();
+    console.log(saida);
+
 
   return 'done.';
 }
